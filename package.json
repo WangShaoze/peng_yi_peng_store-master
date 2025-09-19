@@ -1,0 +1,22 @@
+{
+  "name": "peng_yi_peng_store",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "postinstall": "weapp-tw patch"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.12",
+    "tailwindcss": "^4.1.6",
+    "weapp-tailwindcss": "^4.2.5"
+  },
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "moment": "^2.30.1",
+    "qs": "^6.14.0",
+    "semver": "^7.7.2"
+  }
+}
