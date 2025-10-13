@@ -152,13 +152,13 @@ export default {
 					platformName: this.query.name,
 				}).then(res => {
 					this.parseShortLink = res.result
-					this.$http.post('/pengyipeng/api/saveShortLink', {
-						platformName: this.query.name,
-						shortLink: this.shortLink,
-						parseResult: this.parseShortLink,
-					}, {
-						'Content-Type': 'application/x-www-form-urlencoded'
-					})
+					// this.$http.post('/pengyipeng/api/saveShortLink', {
+					// 	platformName: this.query.name,
+					// 	shortLink: this.shortLink,
+					// 	parseResult: this.parseShortLink,
+					// }, {
+					// 	'Content-Type': 'application/x-www-form-urlencoded'
+					// })
 				}).catch(e => {
 					uni.showToast({
 						title: '解析失败',
@@ -214,13 +214,6 @@ export default {
 					'Content-Type': 'application/x-www-form-urlencoded'
 				})
 			}
-			// if (this.showStoreLink) {
-			// 	this.$http.post('/pengyipeng/api/saveShortLink', {
-			// 		platformName: this.query.name,
-			// 		shortLink: this.shortLink,
-			// 		parseResult: this.parseShortLink,
-			// 	})
-			// }
 			if (this.query.name == 'wifi') {
 				this.modifyWifi()
 				return
@@ -232,6 +225,22 @@ export default {
 			if (this.query.name == 'wechat') {
 				this.uploadWechatPic()
 				return
+			}
+			// if (this.showStoreLink) {
+			// 	this.$http.post('/pengyipeng/api/saveShortLink', {
+			// 		platformName: this.query.name,
+			// 		shortLink: this.shortLink,
+			// 		parseResult: this.parseShortLink,
+			// 	})
+			// }
+			if (this.parseShortLink){
+				this.$http.post('/pengyipeng/api/saveShortLink', {
+					platformName: this.query.name,
+					shortLink: this.shortLink,
+					parseResult: this.parseShortLink,
+				}, {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				})
 			}
 		},
 		modifyWifi() {

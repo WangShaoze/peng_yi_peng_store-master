@@ -12,10 +12,12 @@
 			}
 		},
 		onLoad(options) {
-			this.$http.get('/pengyipeng/user-app/api/getMerchantWechatQrCode',{
+			console.log("merchantId:", options.merchantId);
+			this.$http.get('/pengyipeng/user-app/api/getMerchantWechatQrCode', {
 				merchantId: options.merchantId,
 			}).then(res => {
-				this.url = res.result
+				this.url = res.result;
+				console.log("QrCode.vue: res.result:", res.result);
 			}).finally(() => {
 				uni.hideLoading({})
 			})

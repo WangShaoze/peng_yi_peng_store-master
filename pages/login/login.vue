@@ -66,6 +66,7 @@ export default {
 					}).then(res3=>{
 						let result = res3.result
 						const token = result.token
+						console.log("登录：token")
 						uni.setStorageSync('token', token)
 						uni.setStorageSync('merchantId', result.id)
 						const merchantStore = useMerchantStore();
