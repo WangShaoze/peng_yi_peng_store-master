@@ -2,8 +2,8 @@ let _DOMAIN = 'https://pyp.ylkj668.com/jeecg-boot'; // 生产环境默认地址
 //let _DOMAIN = 'http://192.168.3.87:8080/jeecg-boot'; // 生产环境默认地址
 if (process.env.NODE_ENV === 'development') {
     // _DOMAIN = 'http://127.0.0.1:4523/m1/374563-419298-default';
-    _DOMAIN = 'http://192.168.1.22:8081/jeecg-boot';
-    //_DOMAIN = 'https://pyp.ylkj668.com/jeecg-boot';
+    // _DOMAIN = 'http://192.168.1.22:8081/jeecg-boot';
+    _DOMAIN = 'https://pyp.ylkj668.com/jeecg-boot';
 }
 
 export const DOMAIN = _DOMAIN
@@ -34,6 +34,21 @@ export const http = {
             mask: true
         })
         const res = await http.request(url, 'POST', data, header)
+        uni.hideLoading()
+        if(res.code == 200) {
+            res.message && uni.showToast({
+                title: res.message,
+                icon: 'none',
+            })
+        }
+        return res
+    },
+    delete: async (url, data, header = {}) => {
+        uni.showLoading({
+            title: '请稍候',
+            mask: true
+        })
+        const res = await http.request(url, 'DELETE', data, header)
         uni.hideLoading()
         if(res.code == 200) {
             res.message && uni.showToast({

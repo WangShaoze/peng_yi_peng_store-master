@@ -34,9 +34,9 @@ export default {
 		}
 	},
 	onLoad(options) {
-		// console.log(options)
-		this.wifiUser = options.wifiName
-		this.wifiPwd = options.wifiPwd
+		console.log(options,'123')
+		this.wifiUser = decodeURIComponent(options.wifiName)
+		this.wifiPwd = decodeURIComponent(options.wifiPwd)
 		uni.authorize({
 			scope: 'scope.userLocation',
 			success: () => {

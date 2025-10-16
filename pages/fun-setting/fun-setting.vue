@@ -74,6 +74,7 @@
 			</div>
 		</div>
 
+		<div v-if="query.name == 'xiecheng' || query.name == 'wechat_friend'" class="!mt-[70vh]"></div>
 		<div class="!flex gap-[10px] !mt-[30px]">
 			<div class="btn disabled" @click="close" v-if="query.name != 'wifi'">
 				关闭

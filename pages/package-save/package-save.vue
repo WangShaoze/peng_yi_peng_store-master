@@ -94,6 +94,9 @@
 		</view>
 
 		<view class="!flex gap-[10px] !mt-[30px] sticky bottom-[25px] left-0 right-0  z-10">
+			<view class="btn fill" style="background-color: #F20000;" @click="deletePackage" v-if="formData.id">
+				删除
+			</view>
 			<view class="btn fill" @click="save">
 				保存
 			</view>
@@ -171,6 +174,14 @@ export default {
 			this.$http.post('/pengyipeng/api/editMerchantPackageInfo', this.formData, {
 				// 'Content-Type': 'application/x-www-form-urlencoded'
 			})
+		},
+		deletePackage() {
+			this.$http.delete('/pengyipeng/tBPackages/delete?id='+ this.formData.id, {
+				// 'Content-Type': 'application/x-www-form-urlencoded'
+			})
+			setTimeout(() => {
+				uni.navigateBack()
+			}, 1000)
 		},
 		handlePlatformChange(checked, item) {
 			this.formData.platformList ??= []

@@ -12,7 +12,7 @@
 					class="item !p-[10px] !py-[15px] !rounded-[10px] text-center !flex flex-col justify-center items-center">
 					<div class="!text-[18px]">{{ item.label }}</div>
 					<div class="!text-[18px] mt-[5px]">{{ item.total_value }}</div>
-					<div class="!text-[20px] mt-[5px] text-red-500">昨日 +{{ item.yesterday_value }}</div>
+					<div class="!text-[20px] mt-[5px] text-red-500">今日 +{{ item.yesterday_value }}</div>
 				</view>
 			</div>
 		</view>

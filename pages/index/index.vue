@@ -46,7 +46,7 @@
 			</view>
 		</template>
 		<view class="!mt-[35px] relative" @click="toWifiSetting">
-			<image class="!w-full" mode="widthFix" src="/static/Group 46.png"></image>
+			<image class="!w-full" mode="widthFix" src="@/static/46.png"></image>
 			<view class="text-[14px] absolute" style="top: 7.5vw;left: 22vw;">
 				<view>
 					<text class="text-[#666666]">Wi-Fi名称：</text><text>{{ merchant.wifiUser }}</text>
@@ -127,7 +127,10 @@ export default {
 					this.$http.upload(res.tempFilePaths[0]).then(res2 => {
 						this.img = res2.message
 						this.$http.post('/pengyipeng/api/editMerchantInfo', {
-							merchantMainPic: res2.message,
+							merchantMainPic: res2.message
+						}).then(res => {
+							const merchantStore = useMerchantStore();
+							merchantStore.refreshMerchant()
 						})
 					})
 				}
